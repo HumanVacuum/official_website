@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制面板</title>
+</head>
+
+<body>
+    <h1>控制面板</h1>
+    <form action="#" method="get">
+        <table>
+            <!-- 第一行更改控制模式 -->
+            <tr>
+                <td>
+                    控制模式：
+                </td>
+                <td>
+                    <input type="radio" name="pattern" cheecked="checked">自动
+                    <input type="radio" name="pattern">手动
+                    污染等级达到？时会触发警报
+                </td>
+            </tr>
+            <!-- 第二行更改警报触发条件 -->
+            <tr>
+                <td>
+                    警报触发条件：
+                </td>
+                <td>
+                    <select name="level">
+                        <option>--选择污染物等级--</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <select name="timeStart">
+                        <option>--开始时间--</option>
+                        <option>0:00</option>
+                        <option>1:00</option>
+                        <option>2:00</option>
+                        <option>3:00</option>
+                        <option>4:00</option>
+                        <option>5:00</option>
+                        <option>6:00</option>
+                        <option>7:00</option>
+                        <option>8:00</option>
+                        <option>9:00</option>
+                        <option>10:00</option>
+                        <option>11:00</option>
+                        <option>12:00</option>
+                        <option>13:00</option>
+                        <option>14:00</option>
+                        <option>15:00</option>
+                        <option>16:00</option>
+                        <option>17:00</option>
+                        <option>18:00</option>
+                        <option>19:00</option>
+                        <option>20:00</option>
+                        <option>21:00</option>
+                        <option>22:00</option>
+                        <option>23:00</option>
+                    </select>
+                    <select name="timeEnd">
+                        <option>--结束时间--</option>
+                        <option>0:00</option>
+                        <option>1:00</option>
+                        <option>2:00</option>
+                        <option>3:00</option>
+                        <option>4:00</option>
+                        <option>5:00</option>
+                        <option>6:00</option>
+                        <option>7:00</option>
+                        <option>8:00</option>
+                        <option>9:00</option>
+                        <option>10:00</option>
+                        <option>11:00</option>
+                        <option>12:00</option>
+                        <option>13:00</option>
+                        <option>14:00</option>
+                        <option>15:00</option>
+                        <option>16:00</option>
+                        <option>17:00</option>
+                        <option>18:00</option>
+                        <option>19:00</option>
+                        <option>20:00</option>
+                        <option>21:00</option>
+                        <option>22:00</option>
+                        <option>23:00</option>
+                    </select>
+                </td>
+            </tr>
+            <!-- 第三行手动控制警报开关 -->
+            <tr>
+                <td><input type="radio" name="open" cheecked="checked">开
+                    <input type="radio" name="open">关</td>
+            </tr>
+        </table>
+        <!-- 提交信息至服务器 -->
+        <input type="submit" value="更改设置">
+    </form>
+    <!-- 回到首页 -->
+    <a href="管理员首页.html"> 返回首页</a>
+
+</body>
+
+</html>
