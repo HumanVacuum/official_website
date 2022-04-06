@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页</title>
+</head>
+
+<body>
+    <h1>登录以开始访问</h1>
+    <!-- 这里通过action连接到后端，点击submit后会将数据提交至服务器 -->
+    <form action="#" method="get">
+    <table>
+        <!-- 选择以管理员或用户身份登录 -->
+        <tr>
+            <td>身份：</td>
+            <td><input type="radio" name="identity" cheecked="checked">用户
+                <input type="radio" name="identity">管理员
+            </td>
+        </tr>
+        <!-- 输入密码 -->
+        <tr></tr>
+        <tr>
+            <td>密码：</td>
+            <td>
+                <input type="password" name="code" maxlength="20">
+            </td>
+        </tr>
+    </table>
+    <!-- <input type="submit" value="登录"> 这个语句暂时没用，用a链接代替-->
+    <a href="用户首页.html" target="_self">用户登录</a><br>
+    <a href="管理员首页.html" target="_self">管理员登录</a>
+    </form>
+    <br>
+    <!-- 连接到注册页面 -->
+    还没有账号？点击立即注册<a href="用户注册页.html" target="_self">用户注册</a>或<a href="管理员注册页.html" target="_self">管理员注册</a>
+</body>
+
+</html>
