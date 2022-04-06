@@ -9,14 +9,62 @@
 </head>
 
 <body>
-    <span>当前污染等级</span>
-    <span>建议应对策略</span>
-    <!-- 上面两个部分需要通过服务器获取 -->
     <!--<span><a href="Account.html" target="_blank">个人中心</a></span>-->
     <form action="" method="POST">
-        <input type = 'submit' value="Account">
+        <input type = 'submit' value="个人中心">
     </form>
 
+    <!-- todo 对接服务器 -->
+    <h1>当前数据</h1>
+    <table>
+        <tr>
+            <td>
+                当前污染等级：
+            </td>
+            <td id="level">#</td>
+        </tr>
+        <tr>
+            <td>
+                建议应对策略：
+            </td>
+            <td id="strategy">#</td>
+        </tr>
+        <tr>
+            <td>
+                检测时间：
+            </td>
+            <!-- todo 同步更新时间 -->
+            <td id="time">#</td>
+        </tr>
+    </table>
+
+    <script type="text/javascript">
+        var xhr = new XMLHttpRequest();
+        xhr.open('get','http://127.0.0.1:5000/getData')
+        xhr.send();
+        xhr.onload = function () {
+            var responseText = JSON.parse(xhr.responseText);
+            console.log(responseText);
+            document.getElementById('level').innerHTML = responseText.level;
+            document.getElementById('strategy').innerHTML = responseText.strategy;
+            document.getElementById('time').innerHTML = showRealTime();
+        }
+
+        // todo 最后应该由服务端给出检测数据的时间
+        function showRealTime() {
+            var d = new Date();
+            var year = d.getFullYear();
+            var month = d.getMonth() + 1;
+            var date = d.getDate();
+            var days = new Array("日", "一", "二", "三", "四", "五", "六");
+            var day = d.getDay();
+            var hour = (d.getHours() < 10) ? ("0" + d.getHours()) : d.getHours();
+            var min = (d.getMinutes() < 10) ? ("0" + d.getMinutes()) : d.getMinutes();
+            var sec = (d.getSeconds() < 10) ? ("0" + d.getSeconds()) : d.getSeconds();
+            var now = year + "年" + month + "月" + date + "日  星期" + days[day] + "  " + hour + ":" + min + ":" + sec;
+            return now;
+        }
+    </script>
 </body>
 
 </html>

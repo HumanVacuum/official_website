@@ -17,15 +17,22 @@ def root():
 
 
 # sign up page - user
-@app.route('/SignUpUser')
+@app.route('/SignUpUser', methods=['GET', 'POST'])
 def sign_up_user():
-    return render_template("SignUpUser.html")
+    if request.method == 'GET':
+        return render_template("SignUpUser.html")
+    if request.method == 'POST':
+        return redirect(url_for('root'))
 
 
 # sign up page - admin
-@app.route('/SignUpAdmin')
+@app.route('/SignUpAdmin', methods=['GET', 'POST'])
 def sign_up_admin():
-    return render_template("SignUpAdmin.html")
+    if request.method == 'GET':
+        return render_template("SignUpAdmin.html")
+    if request.method == 'POST':
+        return redirect(url_for('root'))
+
 
 
 # sign in as administrator
@@ -69,6 +76,7 @@ def user():
 
 # user - account
 @app.route('/User/Account')
+@app.route('/Admin/Account')
 def personal():
     return render_template("Account.html")
 
