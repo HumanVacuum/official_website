@@ -7,19 +7,41 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', "POST"])
 def root():
     if request.method == 'GET':
-        return render_template('HomePage.html')
+        return render_template('homePage.html')
 
 
 # admin sign up page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template("Login.html")
+    if request.method == 'GET':
+        return render_template("login.html")
+    if request.method == 'POST':
+        return redirect(url_for('present'))
 
 
 # admin page
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
-    return render_template("Admin.html")
+    return render_template("setting.html")
+
+
+# present data page
+@app.route('/present', methods=['GET', 'POST'])
+def present():
+    return render_template("present.html")
+
+
+# history data page
+@app.route('/history', methods=['GET', 'POST'])
+def history():
+    return render_template("history.html")
+
+
+# console page
+@app.route('/console', methods=['GET', 'POST'])
+def console():
+    return render_template("console.html")
+
 
 # present data page - get data
 # @app.route('/getData', methods=['GET', 'POST'])

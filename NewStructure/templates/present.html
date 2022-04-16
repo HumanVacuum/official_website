@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理员系统</title>
-    <!-- <link rel="stylesheet" href="../static/css/iconfont.css"> -->
-    <!-- <link rel="stylesheet" href="../static/css/Admin.css"> -->
+    <link rel="stylesheet" href="../static/css/iconfont.css">
+    <link rel="stylesheet" href="../static/css/menu.css">
     <link type="text/css" href="{{ url_for('static', filename='css/iconfont.css') }}" rel="stylesheet">
-    <link type="text/css" href="{{ url_for('static', filename='css/Admin.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ url_for('static', filename='css/menu.css') }}" rel="stylesheet">
+    <script src="/static/js/present.js"></script>
 </head>
 <body>
     <div class="content">
-        <div class="menu-box">
+        <nav class="menu-box">
             <!-- 展示与隐藏侧边栏 开始-->
             <input type="checkbox" id="menu-btn">
             <label for="menu-btn"><i class="iconfont icon-yemianfanhui"></i></label>
@@ -29,7 +30,7 @@
                     <input type="checkbox" id="menu-item1">
                     <label for="menu-item1">
                         <i class="menu-item-icon iconfont icon-a-01-shujuzhongxin"></i>
-                        <span>navigation1</span>
+                        <span>当前数据</span>
                         <i class="menu-item-last iconfont icon-down"></i>
                     </label>
                     <div class="menu-content">
@@ -43,7 +44,7 @@
                     <input type="checkbox" id="menu-item2">
                     <label for="menu-item2">
                         <i class="menu-item-icon iconfont icon-a-02-kechengguanli"></i>
-                        <span>navigation2</span>
+                        <span>历史数据</span>
                         <i class="menu-item-last iconfont icon-down"></i>
                     </label>
                     <div class="menu-content">
@@ -56,7 +57,7 @@
                     <input type="checkbox" id="menu-item3">
                     <label for="menu-item3">
                         <i class="menu-item-icon iconfont icon-a-04-zixunfabu"></i>
-                        <span>navigation3</span>
+                        <span>控制面板</span>
                         <i class="menu-item-last iconfont icon-down"></i>
                     </label>
                     <div class="menu-content">
@@ -71,21 +72,21 @@
                 <div class="menu-item">
                     <label>
                         <i class="menu-item-icon iconfont icon-a-08-shezhi"></i>
-                        <span>setting</span>
+                        <span>账号和设置</span>
                     </label>
                 </div>
             </div>
-        </div>
+        </nav>
+
+        <main class="main">
+            <div class="main-">
+
+            </div>
+        </main>
+
     </div>
 
 
 
-    <!-- 连接到控制面板 -->
-    <!-- <span><a href="Admin/Console" target="_self">控制面板</a></span> -->
-    <!-- 连接到数据分区 -->
-    <!-- <span><a href="Admin/DataZone" target="_self">数据分区</a></span> -->
-    <!-- 连接到个人中心 -->
-    <!-- todo 此处逻辑关系可能有点问题 -->
-    <!-- <span><a href="Admin/Account" target="_self">个人中心</a></span>  -->
 </body>
 </html>
