@@ -10,19 +10,13 @@ def root():
         return render_template('homePage.html')
 
 
-# admin sign up page
+# admin log in page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
         return render_template("login.html")
     if request.method == 'POST':
         return redirect(url_for('present'))
-
-
-# admin page
-@app.route('/admin', methods=['GET', 'POST'])
-def admin():
-    return render_template("setting.html")
 
 
 # present data page
@@ -42,6 +36,11 @@ def history():
 def console():
     return render_template("console.html")
 
+
+# admin/setting page
+@app.route('/setting', methods=['GET', 'POST'])
+def admin():
+    return render_template("setting.html")
 
 # present data page - get data
 # @app.route('/getData', methods=['GET', 'POST'])

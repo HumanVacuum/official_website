@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../static/css/menu.css">
     <link type="text/css" href="{{ url_for('static', filename='css/iconfont.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ url_for('static', filename='css/menu.css') }}" rel="stylesheet">
-    <script src="/static/js/present.js"></script>
+
 </head>
 <body>
     <div class="content">
@@ -69,7 +69,7 @@
 
                 <div class="set-line"></div>
 
-                <div class="menu-item">
+                <div class="menu-item" id="menu-itemN">
                     <label>
                         <i class="menu-item-icon iconfont icon-a-08-shezhi"></i>
                         <span>账号和设置</span>
@@ -86,7 +86,8 @@
 
     </div>
 
-
+    <script src="{{ url_for('static', filename='js/menuEvents.js') }}"></script>
+<!--    <script src="/static/js/menuEvents.js"></script>-->
 
 </body>
 </html>
