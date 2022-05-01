@@ -15,7 +15,9 @@ xhr.addEventListener("readystatechange", function() {
     //alert(responseText.Node.Value);
   }
 });
-
 xhr.open("POST", "http://ltwyiot.com/api/devicelist?token=7aa03e6bc795a560dea8b918882fdd64");
+xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+xhr.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+xhr.setRequestHeader("Access-Control-Allow-Headers", "Origin, Content-Type, X-Auth-Token");
 
 xhr.send();
