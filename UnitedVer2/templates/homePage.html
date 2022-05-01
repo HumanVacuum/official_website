@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/homePage.css">
+    <link type="text/css" href="{{ url_for('static', filename='css/homePage.css') }}" rel="stylesheet">
+    <title>SDIM设备工坊空气质量检测及反馈系统</title>
+</head>
+<body>
+    <header>
+        LOGO
+        <div>
+            <button type="button" id="toLogin">管理员登录</button>
+        </div>
+    </header>
+
+    <main>
+        <h1>当前污染等级：</h1>
+        <h1>建议采取措施：</h1>
+    </main>
+
+    <footer>
+        @HumanVacuum
+    </footer>
+
+    <script>
+        var btnToLogin = document.getElementById("toLogin");
+
+        btnToLogin.onclick = function () {
+            // window.location.href = "login";
+            window.location.href = "login";
+        }
+
+    </script>
+</body>
+</html>
