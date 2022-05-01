@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, make_response
 from flask_cors import *
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True)
+CORS(app)
 
 
 @app.route('/')
