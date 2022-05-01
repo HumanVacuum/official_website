@@ -21,6 +21,27 @@ header {
     width: 100%;
     position: absolute;
     top: 0;
+    /*padding: 20px 0;*/
+    /*margin: 0 auto;*/
+}
+
+.nav {
+  list-style: none;
+}
+
+.nav li {
+  margin: 12px 0 12px 28px;
+}
+
+.nav li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.nav li a:hover {
+  color: rgba(255,255,255,0.7);
 }
 
 main {

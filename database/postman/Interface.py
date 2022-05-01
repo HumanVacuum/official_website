@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, make_response
 from flask_cors import *
 
 app = Flask(__name__)
+CORS(app, supports_credentials=True)
+
 
 @app.route('/')
 def get_data():
@@ -17,5 +19,6 @@ def get_data():
 """
     return render_template("Interface.html")
 
+
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug=True)

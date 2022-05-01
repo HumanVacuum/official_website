@@ -9,11 +9,14 @@
     <title>SDIM设备工坊空气质量检测及反馈系统</title>
 </head>
 <body>
-    <header>
-        LOGO
-        <div>
-            <button type="button" id="toLogin">管理员登录</button>
-        </div>
+    <header class="header">
+        <h1 class="logo">Logo</h1>
+        <ul class="nav">
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Sign In</a></li>
+            <li><a href="#">管理员登录</a></li>
+        </ul>
     </header>
 
     <main>
@@ -29,7 +32,6 @@
         var btnToLogin = document.getElementById("toLogin");
 
         btnToLogin.onclick = function () {
-            // window.location.href = "login";
             window.location.href = "login";
         }
 
