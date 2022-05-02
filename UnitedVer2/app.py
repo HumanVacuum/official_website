@@ -9,7 +9,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)
 @app.route('/', methods=['GET', "POST"])
 def root():
     if request.method == 'GET':
-        return render_template('homePage.html')
+        return render_template('homepage.html')
 
 
 # admin log in page
