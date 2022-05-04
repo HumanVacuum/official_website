@@ -1,14 +1,25 @@
-// window.onload = function () {
-//
-// }
+function init() {
+    var url = window.location.href;
+    var index = url.lastIndexOf("\/");
+    var str = url.substring(index + 1,url.length);
+    var now = document.getElementById(str);
+    now.setAttribute("data-now","true");
+    if (now.className === "menu-subItem"){
+        var par = now.parentElement;
+        par.setAttribute("data-hidden","false");
+        (par.parentElement).firstElementChild.setAttribute("checked","true");
+    }
 
-function checkboxClicked(obj) {
-    console.log("yes");
+}
+
+function inputClicked(obj) {
+    var li = obj.parentElement;
+    var ul = li.lastElementChild;
     if(obj.checked){
-        obj.setAttribute("data-hidden","false");
-        dataHidden = false;
+        li.setAttribute("data-now","false");
+        ul.setAttribute("data-hidden", "false");
     }else{
-        obj.setAttribute("data-hidden","true");
-        dataHidden = true;
+        li.setAttribute("data-now","true");
+        ul.setAttribute("data-hidden", "true");
     }
 }
