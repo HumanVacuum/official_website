@@ -1,3 +1,7 @@
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,8 +10,10 @@
 /* theme - white */
 :root {
     --num-subItem: 2;
+    --font-size-title: 18px;
     --font-size-item: 22px;
     --font-size-subItem: 18px;
+    --height-content: 50px;
 
     --color-menu-bg: #fff;
     --font-color-mi: #000;
@@ -41,18 +47,18 @@
 .nav {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     letter-spacing: 0.5px;
-    font-weight: 600;
+    font-weight: 550;
     position: relative;
     width: fit-content;
     min-height: 100vh;
-    padding: 13px 13px 13px 15px;
+    padding: 13px 15px 13px 12px;
     box-sizing: border-box;
     background-color: var(--color-menu-bg);
 }
 
 /* main content layout*/
 .main-box {
-    margin: 15px;
+    margin: 20px 25px;
     width: 100%;
 }
 
@@ -70,20 +76,32 @@ a {
 /* puller */
 .puller-content {
     position: absolute;
-    top: 45%;
+    top: 0;
     right: 0;
-    transform: translateX(50%);
-    width: 25px;
-    height: 25px;
-    border-radius: 25px;
-    box-shadow: 0px 0px 4px 0px #000;
-    background-color: var(--color-menu-bg);
-    color: var(--font-color-mi);
+    /*transform: translateX(100%);*/
+    width: 10px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
+/*.puller-content {*/
+/*    position: absolute;*/
+/*    top: 45%;*/
+/*    right: 0;*/
+/*    transform: translateX(50%);*/
+/*    width: 25px;*/
+/*    height: 25px;*/
+/*    border-radius: 25px;*/
+/*    box-shadow: 0px 0px 4px 0px #000;*/
+/*    background-color: var(--color-menu-bg);*/
+/*    color: var(--font-color-mi);*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    overflow: hidden;*/
+/*}*/
 
 .puller-action {
     font-weight: 900;
@@ -94,6 +112,7 @@ a {
 }
 
 .puller-content:hover {
+    background-color: rgba(44, 44, 44, .3);
     box-shadow: 0px 0px 2px 0px #000;
 }
 
@@ -110,7 +129,7 @@ a {
 .menu {
     display: flex;
     flex-direction: column;
-    font-size: 18px;
+    font-size: 20px;
     width: 220px;
     min-height: 100%;
     /*cursor: pointer;*/
@@ -145,7 +164,7 @@ a {
 .menu-item-content{
     position: relative;
     width: 100%;
-    height: 50px;
+    height: var(--height-content);
     border-radius: var(--border-radius-mi);
     display: flex;
     align-items: center;
@@ -153,12 +172,14 @@ a {
 
 .menu-item-icon {
     flex: none;
-    margin-right: 6px;
-    font-size: 24px;
+    margin-left: 8px;
+    margin-right: 10px;
+    font-size: 20px;
+    align-items: center;
 }
 
 .menu-item-label {
-    font-size: 18px;
+    font-size: 22px;
     flex: 1;
 }
 
@@ -208,6 +229,7 @@ li[data-now=true] {
 
 .menu-item-action {
     flex: none;
+    margin-right: 8px;
     font-size: 20px;
     font-weight: 900;
     transform: rotate(0deg);
@@ -219,7 +241,7 @@ li[data-now=true] {
 }
 
 .menu-item>ul[data-hidden=false] {
-    height: calc(var(--num-subItem) * 40px);
+    height: calc(var(--num-subItem) * var(--height-content));
 }
 
 /* menu - separator */
