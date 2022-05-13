@@ -19,12 +19,13 @@ def judge(num):
 #  应对方案的字典
 def action(rank):
     action = {
-        'Excellent!': '无污染',
-        'Good!': '请带上口罩,并开窗通风',
-        'Mild air pollution!': '请带上口罩,并开窗通风',
-        'Moderate air pollution!': '请戴上口罩,开窗通风,打开空气净化器',
-        'Severe air pollution!': '请戴上口罩,开窗通风,打开空气净化器',
-        'Very severe air pollution!': '请戴上口罩,开窗通风,打开空气净化器'
+        'Excellent!': '空气质量优，请放心工作',
+        'Good!': '空气质量良，请佩戴口罩，开窗通风',
+        'Mild air pollution!': '当前空气质量为轻度污染，请佩戴口罩，开窗通风并打开空调新风系统',
+        'Moderate air pollution!': '当前空气质量为轻度污染，请佩戴口罩，开窗通风并打开空调新风系统',
+        'Severe air pollution!': '当前空气质量为严重污染，尽量不要进入设备工坊。如需进入，请佩戴口罩，打开空气净化器',
+        'Very severe air pollution!': '当前空气质量为严重污染，尽量不要进入设备工坊。如需进入，请佩戴口罩，打开空气净化器'
+        'Devil':'当前空气质量极差，请关闭门窗，关闭空调新风系统，打开空气质量净化器并尽快离开设备工坊'
     }
     filename = 'action.json'
     with open(filename,'w')as f:
