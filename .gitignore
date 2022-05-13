@@ -1,3 +1,5 @@
 .idea/
 
-UnitedVer2/test/
+test/
+
+__pycache__/
