@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+
+}
+
+
+/*** layout ***/
+/* level 1 上中下，中间自适应布局 */
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+/* level 2 */
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav {
+    display: flex;
+
+    justify-content: space-around;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/*** size ***/
+/* whole */
+html, body, .container {
+    height: 100%;
+}
+
+/* header */
+.header {
+    padding: 20px 2%;
+}
+
+.logo {
+    width: 30%;
+}
+
+.nav-item {
+    margin: auto 0 auto 40px;
+}
+
+/* main */
+.info {
+    margin-bottom: 15%;
+    padding: 10px;
+    width: auto;
+}
+
+.info-item>span {
+    width: 100px;
+}
+
+.info-item{
+    margin: 5% 0;
+}
+
+/* footer */
+.footer {
+    padding: 20px 2%;
+}
+
+
+/*** details ***/
+/* global styles */
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    background-color: rgba(132, 178, 255, 0.78);
+}
+
+/* header */
+.nav li a {
+    text-decoration: none;
+    color: #464545;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.nav li a:hover {
+    color: rgba(255,255,255,0.7);
+}
+
+.nav li:last-child a {
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
+    transition: 200ms ease-in-out;
+    padding: 8px 16px 7px;
+}
+
+.nav li:last-child a:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #fff;
+}
+
+/* main */
+.info-item-data, .info-item-label {
+    font-size: 60px;
+}
