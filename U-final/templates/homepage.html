@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/homepage.css">
-    <link type="text/css" href="{{ url_for('static', filename='css/homePage.css') }}" rel="stylesheet">
-    <title>SDIM设备工坊空气质量检测及反馈系统</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/homepage.css">
+  <link type="text/css" href="{{ url_for('static', filename='css/homePage.css') }}" rel="stylesheet">
+  <title>SDIM设备工坊空气质量检测及反馈系统</title>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="logo">
-                <!--https://www.flaticon.com/free-icon/vacuum-cleaner_2457712?related_id=2457712&origin=search-->
-                <img src="/static/img/vaccum.png" width="50px" alt="xx">
-            </div>
-            <ul class="nav">
-                <li class="nav-item">
-                    <a href="/user/login">管理员登录</a>
-                </li>
-            </ul>
-        </header>
-
-
-        <main class="main">
-            <ul class="info">
-                <li class="info-item">
-                    <span class="info-item-label">当前污染等级：</span>
-                    <span class="info-item-data" id="data-level">#</span>
-                </li>
-                <li class="info-item">
-                    <span class="info-item-label">建议应对措施：</span>
-                    <span class="info-item-data" id="data-strategy">#</span>
-                </li>
-            </ul>
-
-        </main>
-
-
-        <footer class="footer">
-            <div class="team">
-                @HumanVacuum
-            </div>
-        </footer>
+<div class="container">
+  <header class="header">
+    <div class="logo">
+      <!--https://www.flaticon.com/free-icon/vacuum-cleaner_2457712?related_id=2457712&origin=search-->
+      <img src="/static/img/vaccum.png" width="50px" alt="xx">
     </div>
+    <ul class="nav">
+      <li class="nav-item">
+        <a href="/user/login">管理员登录</a>
+      </li>
+    </ul>
+  </header>
 
 
-    <script src="{{ url_for('static', filename='js/postman.js') }}"></script>
+  <main class="main">
+    <ul class="info">
+      <li class="info-item">
+        <span class="info-item-label">当前污染等级：</span>
+        <span class="info-item-data" id="data-level">#</span>
+      </li>
+      <li class="info-item">
+        <span class="info-item-label">建议应对措施：</span>
+        <span class="info-item-data" id="data-strategy">#</span>
+      </li>
+    </ul>
+
+  </main>
+
+
+  <footer class="footer">
+    <div class="team">
+      @HumanVacuum
+    </div>
+  </footer>
+</div>
+
+
+<script src="{{ url_for('static', filename='js/postman.js') }}"></script>
 </body>
 </html>
