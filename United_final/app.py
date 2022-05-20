@@ -20,10 +20,10 @@ migrate = Migrate(app, db)
 # 注册qa&user
 app.register_blueprint(qa_bp)
 app.register_blueprint(user_bp)
+
+
 # confirm login status
 # 钩子函数，在请求发出前执行
-
-
 @app.before_request
 def before_request():
     user_id = session.get("user_id")
@@ -42,8 +42,8 @@ def before_request():
         except:
             g.user = None
         return None
-    # todo 改成未登录状态提醒页面
-    return render_template("login.html")
+    # !!!!please leave the following line as it is or the redirection will go die
+    return redirect("/admin/login")
 
 
 # 上下文处理器(渲染的所有代码都会去执行)
