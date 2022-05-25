@@ -184,7 +184,7 @@ a {
 }
 
 /* common actions */
-.menu-item-content:hover, li:hover {
+.menu-item-content:hover, .menu-subItem:hover {
     background-color: var(--color-bg-mi-hover);
 }
 
