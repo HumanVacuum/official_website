@@ -23,9 +23,3 @@ function inputClicked(obj) {
         ul.setAttribute("data-hidden", "true");
     }
 }
-
-// function breakJump(e) {
-//     if(confirm("确定退出吗") === false){
-//         e.preventDefault();
-//     }
-// }

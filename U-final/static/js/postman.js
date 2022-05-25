@@ -1,6 +1,14 @@
+// judge html
+var isPresent = 0;
+var url = window.location.href;
+var index = url.lastIndexOf("\/");
+var str = url.substring(index + 1,url.length);
+if(str === "present") isPresent = 1;
+
 // tags to be changed
-var level = document.getElementById("data-level");
-var strategy = document.getElementById("data-strategy");
+var tagLevel = document.getElementById("data-level");
+var tagStrategy = document.getElementById("data-strategy");
+if(isPresent) var tagValue = document.getElementById("data-value");
 
 // xhr
 var xhr = new XMLHttpRequest();
@@ -8,45 +16,39 @@ xhr.withCredentials = true;
 var a = 0;
 xhr.addEventListener("readystatechange", function() {
     if(this.readyState === 4 && a === 0) {
-        //console.log(this.responseText);
-        /*
-        * responseText:
-        *   value: The concentration of PM2.5
-        *   Id: The identification of PM2,5 detector
-        *   FlashTime: The time when detector collect the data
-        * */
         var responseText = JSON.parse(this.responseText);
-        /*
-        console.log(responseText);
-        console.log(responseText.Device);
-        console.log(responseText.Device[0].Node);
-        console.log(responseText.Device[0].Node[0].Value);
-        console.log(responseText.Device[0].Node[0].Id);
-        console.log(responseText.Device[0].Flashtime);
-        console.log(responseText.Device[0].Node[0].Unit);
 
-         */
-        //document.getElementById("Device");
-        //document.getElementById("Value");
-        console.log(responseText);
-        console.log(this.responseText);
-        //var url = " http://127.0.0.1:5000/";
-        //xhr.open("POST", url);
-        //xhr.send(this.responseText);
+        /*  responseText:
+        *   Value: The concentration of PM2.5
+        *       responseText.Device[0].Node[0].Value
+        *   Id: The identification of PM2,5 detector
+        *       responseText.Device[0].Node[0].Id
+        *   FlashTime: The time when detector collect the data
+        *       responseText.Device[0].Flashtime
+        *   others:
+        *       responseText.Device
+        *       responseText.Device[0].Node
+        *       responseText.Device[0].Node[0].Unit
+        * */
+
         a = 1;
+        console.log(responseText);
+        // console.log(this.responseText);
 
         var value = responseText.Device[0].Node[0].Value;
         console.log(value);
+        if(isPresent) tagValue.innerHTML = value;
 
-        level.innerHTML = judge(value);
+        tagLevel.innerHTML = judge(value);
         console.log(judge(value));
-        strategy.innerHTML = judge_strategy(value);
+
+        tagStrategy.innerHTML = judge_strategy(value);
         console.log(judge_strategy(value));
+
     }
 });
 xhr.open("POST", "http://ltwyiot.com/api/devicelist?token=7aa03e6bc795a560dea8b918882fdd64");
 xhr.send();
-//xhr.open("POST", "http://127.0.0.1:5000/");
 
 function judge(x){
     if(x >= 0 && x < 35){
