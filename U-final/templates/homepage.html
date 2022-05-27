@@ -1,51 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/css/homepage.css">
-  <link type="text/css" href="{{ url_for('static', filename='css/homePage.css') }}" rel="stylesheet">
-  <title>SDIM设备工坊空气质量检测及反馈系统</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    <link rel="stylesheet" href="homepage.css">-->
+  <link type="text/css" href="{{ url_for('static', filename='css/homepage.css') }}" rel="stylesheet">
+    <!--    <link type="text/css" href="{{ url_for('static', filename='css/homePage.css') }}" rel="stylesheet">-->
+    <title>SDIM设备工坊空气质量检测及反馈系统</title>
 </head>
 <body>
 <div class="container">
-  <header class="header">
-    <div class="logo">
-      <!--https://www.flaticon.com/free-icon/vacuum-cleaner_2457712?related_id=2457712&origin=search-->
-      <img src="/static/img/vaccum.png" width="50px" alt="xx">
-    </div>
-    <ul class="nav">
-      <li class="nav-item">
-        <a href="/user/login">管理员登录</a>
-      </li>
-    </ul>
-  </header>
+    <header class="header">
+        <div class="icon">
+            <img src="/static/img/logo.png" height="100%" alt="xx">
+        </div>
+        <ul class="nav">
+            <li class="nav-item">
+                <a href="/user/login">管理员登录</a>
+            </li>
+        </ul>
+    </header>
+
+    <main class="main">
+        <ul class="info">
+            <li class="info-item">
+                <span class="info-item-label">当前污染等级</span>
+                <span class="info-item-data" id="data-level">#</span>
+            </li>
+            <li class="info-item">
+                <span class="info-item-label">建议应对措施</span>
+                <span class="info-item-data" id="data-strategy">#</span>
+            </li>
+        </ul>
+
+    </main>
 
 
-  <main class="main">
-    <ul class="info">
-      <li class="info-item">
-        <span class="info-item-label">当前污染等级：</span>
-        <span class="info-item-data" id="data-level">#</span>
-      </li>
-      <li class="info-item">
-        <span class="info-item-label">建议应对措施：</span>
-        <span class="info-item-data" id="data-strategy">#</span>
-      </li>
-    </ul>
 
-  </main>
-
-
-  <footer class="footer">
-    <div class="team">
-      @HumanVacuum
-    </div>
-  </footer>
+    <footer class="footer">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(144,85,255,0.7"/>
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(106,127,243,0.7)"/>
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(64,175,231,0.7)"/>
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(19,226,218,0.7)"/>
+            </g>
+        </svg>
+        <div class="team">
+            <span>南山二期 | @HumanVacuum</span>
+        </div>
+    </footer>
 </div>
-
-
-<script src="{{ url_for('static', filename='js/postman.js') }}"></script>
 </body>
-</html>
