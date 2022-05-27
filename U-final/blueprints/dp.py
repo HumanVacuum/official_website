@@ -23,15 +23,15 @@ def present():
 
 
 # history data op1
-@bp.route('/user/history/option1', methods=['GET', 'POST'])
+@bp.route('/user/history/day', methods=['GET', 'POST'])
 def history_op1():
-    return render_template("historyOp1.html")
+    return render_template("history_day.html")
 
 
 # history data op2
-@bp.route('/user/history/option2', methods=['GET', 'POST'])
+@bp.route('/user/history/dynamic', methods=['GET', 'POST'])
 def history_op2():
-    return render_template("historyOp2.html")
+    return render_template("history_dynamic.html")
 
 
 # console page

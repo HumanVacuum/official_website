@@ -4,7 +4,7 @@
 
 
 
-### 文件说明
+## 文件说明
 
 已经废止无用的文件夹：
 
@@ -38,7 +38,38 @@
 
 
 
-### 图标素材
+## 注意事项
+
+- 临时调试环境
+
+   由于跨域问题难以解决，需要搭建临时的不安全环境用于调试
+
+   在chrome忽略安全性窗口中运行
+
+   1. 打开chrome，输入以下内容，disable高亮的属性
+        chrome://flags/#block-insecure-private-network-requests
+   2. 在windows运行中输入以下指令，打开一个临时的不安全窗口
+        chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
+   
+- 修改history子页面
+
+   - dp.py
+
+     修改：url，返回的template名
+
+     保持不动：函数名
+
+   - base_menu.html
+
+     修改：a标签中的url，span标签中的文字
+
+     保持不动：li标签的id
+
+
+
+## 素材
+
+### 图标
 
 - 下拉&puller三角
 

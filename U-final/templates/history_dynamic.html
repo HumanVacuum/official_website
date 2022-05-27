@@ -1,0 +1,120 @@
+{% extends "base_menu.html" %}
+
+{% block title %}dynamic{% endblock %}
+
+{% block head %}
+<!--<script src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.js"></script>-->
+<script src="{{ url_for('static', filename='js/echarts.js') }}"></script>
+{% endblock %}
+
+{% block main %}
+<!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+<style>
+    #linechart,
+    html,
+    body {
+        width: 100%;
+    }
+
+    #linechart {
+        height: 500px;
+    }
+</style>
+
+<div id="linechart"></div>
+<script type="text/javascript">
+    /* 每次刷新页面容器适应窗口大小 */
+    window.onresize = function () {
+        myChart.resize();
+    }
+    /* 直接抄的echart代码 */
+    /*     import * as echarts from 'echarts'; */
+    var chartDom = document.getElementById('linechart');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    /* 对于时间的基本设置 */
+    /* 数据随机，并不能代表真实数据，如需展示真实效果则需另外引入json数据 */
+    let base = +new Date(2022, 4, 18);
+    let oneDay = 24 * 3600 * 1000;
+    let date = [];
+    let data = [Math.random() * 300];
+    for (let i = 1; i < 20000; i++) {
+        var now = new Date((base += oneDay));
+        date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'));
+        data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
+    }
+    /* 图表样式的基本设置 */
+    option = {
+        tooltip: {
+            trigger: 'axis',
+            position: function (pt) {
+                return [pt[0], '10%'];
+            }
+        },
+        title: {
+            left: 'center',
+            text: '历史数据动态变化'
+        },
+        toolbox: {
+            feature: {
+                dataZoom: {
+                    yAxisIndex: 'none'
+                },
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: date
+        },
+        yAxis: {
+            type: 'value',
+            boundaryGap: [0, '100%']
+        },
+        dataZoom: [
+            {
+                type: 'inside',
+                start: 0,
+                end: 10
+            },
+            {
+                start: 0,
+                end: 10
+            }
+        ],
+        series: [
+            {
+                name: '污染物浓度',
+                type: 'line',
+                symbol: 'none',
+                sampling: 'lttb',
+                itemStyle: {
+                    color: 'rgb(255, 70, 131)'
+                },
+                areaStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        {
+                            offset: 0,
+                            color: 'rgb(255, 158, 68)'
+                        },
+                        {
+                            offset: 1,
+                            color: 'rgb(255, 70, 131)'
+                        }
+                    ])
+                },
+                data: data
+            }
+        ]
+    };
+
+    option && myChart.setOption(option);
+
+</script>
+
+{% endblock %}
+
+{% block script %}{% endblock %}
