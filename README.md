@@ -38,6 +38,46 @@
 
 
 
+## UI设计规范
+
+- 主色
+
+  背景色
+
+  ```css
+  rgba(0, 0, 0, 0.89);
+  ```
+
+- 渐变色
+
+  分割条等
+
+  ```css
+  linear-gradient(to right, #9055FF,#13E2DA);
+  ```
+
+- 阴影
+
+  block阴影等
+
+  ```css
+  box-shadow: #13E2DA 0px 13px 20px 0px, #9055FF 0px 8px 16px 0px;
+  ```
+
+- 副主色
+
+  menu
+
+  ```css
+  rgb(29, 31, 32);
+  ```
+
+- hover效果色
+
+  纯黑
+
+
+
 ## 注意事项
 
 - 临时调试环境
