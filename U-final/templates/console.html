@@ -6,7 +6,31 @@
 
 {% block main %}
 <div class="main-test">
-    test words
+    <div class="setting-block">
+
+            <div class="setting-separator">
+                <span class="setting-font" style="color: white">警报开关</span>
+                <div class="container">
+                      <label class="switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                      </label>
+                </div>
+            </div>
+
+            <div class="setting-line"></div>
+
+            <div class="setting-separator">
+                <p class="setting-font" style="color: white">阈值修改</p>
+                    <div class="container">
+                        <input type="number" id="input-text" placeholder="推荐浓度:35" min="1" max="500">
+                        <input type="submit" id="input-submit"  onclick=alert("修改成功!") value="submit">
+                    </div>
+            </div>
+
+
+
+        </div>
 </div>
 {% endblock %}
 
