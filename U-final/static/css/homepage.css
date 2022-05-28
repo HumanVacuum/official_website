@@ -1,3 +1,4 @@
+
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
 * {
@@ -138,7 +139,7 @@ body {
 }
 
 .nav li:last-child a:hover {
-    background: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(to right, #9055FF,#13E2DA);
     color: #fff;
 }
 
@@ -160,8 +161,6 @@ body {
     padding-top: 10px;
     background-color: #24CDDE;
 }
-
-
 
 
 /*** Animation ***/
