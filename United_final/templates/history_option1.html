@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{% endblock %}</title>
+
+<!--    <link rel="stylesheet" href="../static/css/menu.css">-->
+    <link href="styles/menu.css" rel="stylesheet">
+    <link type="text/css" href="{{ url_for('static', filename='css/menu.css') }}" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
+    {% block head %}{% endblock %}
+</head>
+<body onload="init()">
+<div class="content">
+    <nav class="nav">
+        <!--  puller  -->
+        <input type="checkbox" id="puller">
+        <label for="puller" class="puller-content">
+                <span class="puller-action">
+                </span>
+        </label>
+
+        <!--  menu  -->
+        <div class="menu">
+            <!--  menu - title  -->
+            <div class="menu-title">
+                <h1>Menu</h1>
+            </div>
+
+            <!--  menu-box  -->
+            <div class="menu-box">
+                <!-- menu - group 1 -->
+                <ul class="menu-group">
+                    <!--  menu - item 1.1  -->
+                    <li class="menu-item" id="present" data-now="false">
+                        <a href="/user/present" id="menu-item1-1" class="menu-item-content">
+                                <span class="menu-item-icon">
+                                    <i class="fi fi-br-chart-histogram"></i>
+                                </span>
+                            <span class="menu-item-label">当前数据</span>
+                        </a>
+                    </li>
+
+                    <!--  menu - item 1.2  -->
+                    <li class="menu-item" id="history" data-now="false">
+                        <input type="checkbox" id="menu-item1-2" onclick="inputClicked(this)">
+                        <label for="menu-item1-2" class="menu-item-content">
+                                <span class="menu-item-icon">
+                                    <i class="fi fi-br-clock"></i>
+                                </span>
+                            <span class="menu-item-label">历史数据</span>
+                            <span class="menu-item-action">
+                                    <i class="fi fi-br-angle-small-down"></i>
+                                </span>
+                        </label>
+                        <ul class="menu-subGroup" id="menu-subGroup1-2" data-hidden="true">
+                            <!-- sub-item 1.2.1 -->
+                            <li class="menu-subItem" id="day" data-now="false">
+                                <a href="/user/history/day" onclick="subItemClicked(this)">
+                                    <span class="menu-item-label">day</span>
+                                </a>
+                            </li>
+                            <!-- sub-item 1.2.2 -->
+                            <li class="menu-subItem" id="dynamic" data-now="false">
+                                <a href="/user/history/dynamic" onclick="subItemClicked(this)">
+                                    <span class="menu-item-label">dynamic</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!--  menu - item 1.3  -->
+                    <li class="menu-item" id="console" data-now="false">
+                        <a href="/user/console" id="menu-item1-3" class="menu-item-content">
+                                <span class="menu-item-icon">
+                                    <i class="fi fi-br-settings-sliders"></i>
+                                </span>
+                            <span class="menu-item-label">控制面板</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!--  menu - separator  -->
+                <div class="menu-separator"></div>
+
+                <!--  menu - group 2  -->
+                <ul class="menu-group">
+                    <!--  menu - item 2.1  -->
+                    <li class="menu-item" id="user" data-now="false">
+                        <a href="/user" id="menu-item2-1" class="menu-item-content">
+                                <span class="menu-item-icon">
+                                    <i class="fi fi-br-user"></i>
+                                </span>
+                            <span class="menu-item-label">账号和设置</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+<!--            &lt;!&ndash;todo add login info &ndash;&gt;-->
+<!--            <div class="menu-useremail" id="show">-->
+<!--                <a class="menu-item-content">-->
+<!--                    <span class="menu-item-label">#</span>-->
+<!--                </a>-->
+<!--            </div>-->
+
+            <!--  menu - logout  -->
+            <div class="menu-logout" id="logout">
+                <a href="/user/logout" class="menu-item-content">
+                        <span class="menu-item-icon">
+                            <i class="fi fi-br-cross-circle"></i>
+                        </span>
+                    <span class="menu-item-label">退出</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="main-box">
+        <div class="information">
+            <div class="logo">
+                <img src="/static/img/logo.png" alt="logo" height="35px" >
+            </div>
+            <span class="about-us" >南山二期| @Human-Vacuum</span>
+            <a  href="https://sdim.sustech.edu.cn/" target="_blank" style="color: whitesmoke">了解我们</a>
+        </div>
+
+        <div class="main-separator"></div>
+
+        <div class="main-echart" id="container" ></div>
+
+        <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+        <script type="text/javascript">
+          var dom = document.getElementById('container');
+          var myChart = echarts.init(dom, 'dark', {
+            renderer: 'canvas',
+            useDirtyRect: false
+          });
+          var app = {};
+          
+          var option;
+      
+          let base = +new Date(2022, 4, 18);
+      let oneDay = 24 * 360 * 1000;
+      let date = [];
+      let data = [Math.random() * 500];
+      for (let i = 1; i < 20000; i++) {
+        var now = new Date((base += oneDay));
+        date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'));
+        data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
+      }
+      option = {
+        tooltip: {
+          trigger: 'axis',
+          position: function (pt) {
+            return [pt[0], '10%'];
+          }
+        },
+        title: {
+          left: 'center',
+          text: '历史数据动态变化'
+        },
+        toolbox: {
+          feature: {
+            dataZoom: {
+              yAxisIndex: 'none'
+            },
+            restore: {},
+            saveAsImage: {}
+          }
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: date
+        },
+        yAxis: {
+          type: 'value',
+          boundaryGap: [0, '100%']
+        },
+        dataZoom: [
+          {
+            type: 'inside',
+            start: 0,
+            end: 10
+          },
+          {
+            start: 0,
+            end: 10
+          }
+        ],
+        series: [
+          {
+            name: '污染物浓度',
+            type: 'line',
+            symbol: 'none',
+            sampling: 'lttb',
+            itemStyle: {
+              color: 'rgb(255, 70, 131)'
+            },
+            areaStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                  offset: 0,
+                  color: 'rgb(255, 158, 68)'
+                },
+                {
+                  offset: 1,
+                  color: 'rgb(255, 70, 131)'
+                }
+              ])
+            },
+            data: data
+          }
+        ]
+      };
+      
+          if (option && typeof option === 'object') {
+            myChart.setOption(option);
+          }
+      
+          window.addEventListener('resize', myChart.resize);
+        </script>
+    </main>
+
+</div>
+
+<!--<script src="../static/js/menuEvents.js"></script>-->
+<script src="{{ url_for('static', filename='js/menuEvents.js') }}"></script>
+
+{% block script %}{% endblock %}
+</body>
+</html>
