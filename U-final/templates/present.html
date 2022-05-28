@@ -2,7 +2,9 @@
 
 {% block title %}当前数据{% endblock %}
 
-{% block head %}{% endblock %}
+{% block head %}
+<link type="text/css" href="{{ url_for('static', filename='css/present.css') }}" rel="stylesheet">
+{% endblock %}
 
 {% block main %}
     <ul class="info">
